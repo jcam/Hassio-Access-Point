@@ -203,11 +203,14 @@ fi
 
 # Setup Client Internet Access
 if $(bashio::config.true "client_internet_access"); then
-
-    ## Route traffic
-    iptables-nft -t nat -A POSTROUTING -o $DEFAULT_ROUTE_INTERFACE -j MASQUERADE
-    iptables-nft -P FORWARD ACCEPT
-    iptables-nft -F FORWARD
+    if [ $DEFAULT_ROUTE_INTERFACE == '' ]; then
+        logger "# no default route, not enabling client internet" 1
+    else
+        ## Route traffic
+        iptables-nft -t nat -A POSTROUTING -o $DEFAULT_ROUTE_INTERFACE -j MASQUERADE
+        iptables-nft -P FORWARD ACCEPT
+        iptables-nft -F FORWARD
+    fi
 fi
 
 # Start dnsmasq if DHCP is enabled in config

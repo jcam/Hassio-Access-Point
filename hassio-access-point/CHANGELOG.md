@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.2] - 2025-07-14
+- don't enable forwarding if no default route exists
+
 ## [1.0.1] - 2025-07-14
 - enable dns
 
