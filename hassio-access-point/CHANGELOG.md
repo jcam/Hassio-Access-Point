@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.1] - 2025-07-14
+- enable dns
+
+## [1.0.0] - 2025-07-14
+- disable 40mhz channels
+
 ## [0.5.2.1] - 2024-04-02
 
 ### Fixed
